@@ -1,5 +1,6 @@
 package com.project.fenix.entities.user;
 
+import com.project.fenix.entities.BaseModel;
 import com.project.fenix.enums.EnumRol;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -24,7 +25,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rol extends BaseModel{
+public class Rol extends BaseModel {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EnumRol name;

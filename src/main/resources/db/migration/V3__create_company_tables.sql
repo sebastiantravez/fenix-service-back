@@ -34,8 +34,8 @@ CREATE TABLE company (
     name VARCHAR(250) NOT NULL,
     ruc VARCHAR(50) NOT NULL,
     address VARCHAR(250) NOT NULL,
-    phone VARCHAR(150) NOT NULL,
-    description VARCHAR(150) NOT NULL,
+    phone VARCHAR(150),
+    description VARCHAR(150),
     type_center VARCHAR(50) NOT NULL,
     country_id SERIAL NOT NULL,
     status VARCHAR(3),
@@ -51,8 +51,8 @@ CREATE TABLE subsidiary (
     address VARCHAR(250) NOT NULL,
     emission_point VARCHAR(50) NOT NULL,
     establishment_point VARCHAR(250) NOT NULL,
-    phone VARCHAR(150) NOT NULL,
-    description VARCHAR(150) NOT NULL,
+    phone VARCHAR(150),
+    description VARCHAR(150),
     type_center VARCHAR(50) NOT NULL,
     province_id SERIAL NOT NULL,
     status VARCHAR(3),
@@ -68,3 +68,6 @@ INSERT INTO country(id, name, status, created_at, updated_at) VALUES (1, 'ECUADO
 INSERT INTO province(id, name, country_id, status, created_at, updated_at) VALUES (1, 'PICHINCHA', 1, 'ACT', now(), now());
 
 INSERT INTO city(id, name, province_id, status, created_at, updated_at) VALUES (1, 'QUITO', 1, 'ACT', now(), now());
+
+INSERT INTO company(id, name, ruc, address, phone, description, type_center, country_id, status, created_at, updated_at)
+values (1, 'FENIX', '1702457896001', 'EL CONDANDO','024784212','EMPRESA', 'MATRIZ',1,'ACT', now(), now())

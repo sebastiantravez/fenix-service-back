@@ -1,6 +1,6 @@
 package com.project.fenix.entities.company;
 
-import com.project.fenix.entities.user.BaseModel;
+import com.project.fenix.entities.BaseModel;
 import com.project.fenix.enums.EnumTypeCenter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

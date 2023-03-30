@@ -1,5 +1,6 @@
 package com.project.fenix.entities.user;
 
+import com.project.fenix.entities.BaseModel;
 import com.project.fenix.enums.EnumStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Permission extends BaseModel{
+public class Permission extends BaseModel {
 
     @Column(nullable = false)
     private String name;

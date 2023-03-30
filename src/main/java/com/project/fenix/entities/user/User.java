@@ -1,16 +1,15 @@
 package com.project.fenix.entities.user;
 
+import com.project.fenix.entities.BaseModel;
 import com.project.fenix.enums.EnumStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +25,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class User extends BaseModel{
+public class User extends BaseModel {
     @Column(unique = true, nullable = false)
     private String username;
     @Column(nullable = false)
@@ -39,9 +38,8 @@ public class User extends BaseModel{
     @JoinTable(name = "user_rol", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles;
 
-    @Builder
-    public User(Long id, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, String username, String password, String email, String avatar, Boolean changePassword, Set<Rol> roles) {
-        super(id, createdAt, updatedAt, status);
+    public User(Long id, String userCreated, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, String username, String password, String email, String avatar, Boolean changePassword, Set<Rol> roles) {
+        super(id, userCreated, createdAt, updatedAt, status);
         this.username = username;
         this.password = password;
         this.email = email;

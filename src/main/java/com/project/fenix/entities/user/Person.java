@@ -1,5 +1,6 @@
 package com.project.fenix.entities.user;
 
+import com.project.fenix.entities.BaseModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person extends BaseModel{
+public class Person extends BaseModel {
     private String name;
     private String lastName;
     private String document;
