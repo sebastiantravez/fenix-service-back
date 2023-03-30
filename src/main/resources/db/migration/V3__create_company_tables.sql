@@ -9,7 +9,7 @@ CREATE TABLE country(
 
 CREATE TABLE province(
     id SERIAL NOT NULL,
-    name VARCHAR(150) NOT NULL,
+    name VARCHAR(150) NOT NULL UNIQUE ,
     country_id SERIAL NOT NULL,
     status VARCHAR(3) DEFAULT 'ACT',
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE province(
 
 CREATE TABLE city(
     id SERIAL NOT NULL,
-    name VARCHAR(150) NOT NULL,
+    name VARCHAR(150) NOT NULL UNIQUE,
     province_id SERIAL NOT NULL,
     status VARCHAR(3) DEFAULT 'ACT',
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
