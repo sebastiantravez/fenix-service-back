@@ -21,6 +21,6 @@ public class BaseModelDto {
     private LocalDateTime createdAt;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
-    private EnumStatus status;
+    private EnumStatus status = EnumStatus.ACT;
     private String userCreated = USERLOGGER;
 }

@@ -29,7 +29,7 @@ public class Province extends BaseModel {
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "province")
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "province")
     @Builder.Default
     private List<City> cities = new ArrayList<>();
 }

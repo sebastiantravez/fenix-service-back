@@ -35,7 +35,7 @@ public class CompanyServiceImpl implements CompanyService {
         if (company.isPresent()) {
             throw new GenericException("Empresa con ruc " + companyDto.getRuc() + " ya existe");
         }
-        Company companySave = modelMapper.map(companyDto, Company.class);
+        Company companySave = modelCompanyEntity(companyDto);
         companySave.setCreatedAt(LocalDateTime.now());
         companySave.setUpdatedAt(LocalDateTime.now());
         companySave.setStatus(EnumStatus.ACT);

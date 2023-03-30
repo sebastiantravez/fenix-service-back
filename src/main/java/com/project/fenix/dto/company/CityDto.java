@@ -14,4 +14,5 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper=false)
 public class CityDto extends BaseModelDto {
     private String name;
+    private ProvinceDto province;
 }
