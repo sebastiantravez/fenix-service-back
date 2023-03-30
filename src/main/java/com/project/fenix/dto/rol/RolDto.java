@@ -22,8 +22,8 @@ public class RolDto extends BaseModelDto {
     }
 
     @Builder
-    public RolDto(Long id, Long version, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, EnumRol name, Set<PermissionDto> permissions) {
-        super(id, version, createdAt, updatedAt, status);
+    public RolDto(Long id, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, EnumRol name, Set<PermissionDto> permissions) {
+        super(id, createdAt, updatedAt, status);
         this.name = name;
         this.permissions = permissions;
     }

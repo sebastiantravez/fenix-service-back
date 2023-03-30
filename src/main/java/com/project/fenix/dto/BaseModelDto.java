@@ -14,7 +14,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class BaseModelDto {
     private Long id;
-    private Long version;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private EnumStatus status;

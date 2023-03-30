@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,9 +30,6 @@ public class BaseModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Version
-    private Long version;
-
     @Column(name = "created_at", updatable = false)
     @CreatedDate
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -40,7 +38,6 @@ public class BaseModel {
     @LastModifiedDate
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EnumStatus status = EnumStatus.ACT;
 

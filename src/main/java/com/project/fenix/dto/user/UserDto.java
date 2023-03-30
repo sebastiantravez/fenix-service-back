@@ -24,8 +24,8 @@ public class UserDto extends BaseModelDto {
     }
 
     @Builder
-    public UserDto(Long id, Long version, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, String username, String password, String email, String avatar, Boolean changePassword, Set<RolDto> roles) {
-        super(id, version, createdAt, updatedAt, status);
+    public UserDto(Long id, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, String username, String password, String email, String avatar, Boolean changePassword, Set<RolDto> roles) {
+        super(id, createdAt, updatedAt, status);
         this.username = username;
         this.password = password;
         this.email = email;

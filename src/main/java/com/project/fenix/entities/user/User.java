@@ -40,8 +40,8 @@ public class User extends BaseModel{
     private Set<Rol> roles;
 
     @Builder
-    public User(Long id, Long version, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, String username, String password, String email, String avatar, Boolean changePassword, Set<Rol> roles) {
-        super(id, version, createdAt, updatedAt, status);
+    public User(Long id, LocalDateTime createdAt, LocalDateTime updatedAt, EnumStatus status, String username, String password, String email, String avatar, Boolean changePassword, Set<Rol> roles) {
+        super(id, createdAt, updatedAt, status);
         this.username = username;
         this.password = password;
         this.email = email;

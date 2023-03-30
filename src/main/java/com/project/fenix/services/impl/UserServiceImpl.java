@@ -45,21 +45,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity login(AuthCredential presenter) throws ResponseError {
         //TODO: Valida empresa y usuarios activos
-        Optional<User> user = userRepository
-                .findOneByEmailOrUsername(presenter.getUsername(), presenter.getUsername());
+        Optional<User> user = userRepository.findOneByEmailOrUsername(presenter.getUsername(), presenter.getUsername());
 
         if (user.isEmpty())
             throw new ResponseError(HttpStatus.NOT_FOUND, "Error: no existe el usuario ingresado");
 
         if (user.get().getStatus().equals(EnumStatus.INA))
-            throw new ResponseError(HttpStatus.BAD_REQUEST, "Usuario Bloqueado");
+            throw new ResponseError(HttpStatus.BAD_REQUEST, "Error: Usuario Bloqueado");
 
         if (passwordEncoder.matches(presenter.getPassword(), user.get().getPassword())) {
             UserDto userDto = modelMapper.map(user.get(), UserDto.class);
             userDto.setPassword("");
             return new ResponseEntity(new TokenDto(TokenUtils.generateToken(user.get().getUsername(), user.get().getEmail()), userDto), HttpStatus.OK);
         } else {
-            throw new ResponseError(HttpStatus.BAD_REQUEST, "Credenciales incorrectas");
+            throw new ResponseError(HttpStatus.BAD_REQUEST, "Error: Credenciales incorrectas");
         }
     }
 
@@ -67,7 +66,7 @@ public class UserServiceImpl implements UserService {
     public UserDto update(Long userId, UserDto userDto) throws ResponseError {
         Optional<User> user = userRepository.findById(userId);
         if (user.isEmpty())
-            throw new ResponseError(HttpStatus.NOT_FOUND,"Usuario no encontrado");
+            throw new ResponseError(HttpStatus.NOT_FOUND,"Error: Usuario no encontrado");
 
         user.get().setUsername(userDto.getUsername());
         user.get().setEmail(userDto.getEmail());

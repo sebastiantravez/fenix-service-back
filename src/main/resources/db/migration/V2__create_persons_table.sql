@@ -1,5 +1,3 @@
--- db/migration/V2__create_persons_table.sql
-
 CREATE TABLE persons (
   id SERIAL NOT NULL,
   created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
