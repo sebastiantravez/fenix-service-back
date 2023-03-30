@@ -3,6 +3,7 @@ package com.project.fenix.services.impl;
 import com.project.fenix.dto.company.CompanyDto;
 import com.project.fenix.entities.company.Company;
 import com.project.fenix.entities.company.Country;
+import com.project.fenix.enums.EnumStatus;
 import com.project.fenix.exceptions.GenericException;
 import com.project.fenix.repository.CompanyRepository;
 import com.project.fenix.services.CompanyService;
@@ -35,8 +36,9 @@ public class CompanyServiceImpl implements CompanyService {
             throw new GenericException("Empresa con ruc " + companyDto.getRuc() + " ya existe");
         }
         Company companySave = modelMapper.map(companyDto, Company.class);
-        companySave.setUserCreated(companyDto.getUserCreated());
         companySave.setCreatedAt(LocalDateTime.now());
+        companySave.setUpdatedAt(LocalDateTime.now());
+        companySave.setStatus(EnumStatus.ACT);
         return modelCompanyDto(companyRepository.save(companySave));
     }
 
@@ -51,6 +53,7 @@ public class CompanyServiceImpl implements CompanyService {
         company.setTypeCenter(companyDto.getTypeCenter());
         company.setUpdatedAt(LocalDateTime.now());
         company.setUserCreated(companyDto.getUserCreated());
+        company.setStatus(companyDto.getStatus());
         companyRepository.save(company);
         return modelCompanyDto(companyRepository.save(company));
     }

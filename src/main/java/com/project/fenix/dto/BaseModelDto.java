@@ -9,6 +9,8 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+import static com.project.fenix.security.TokenUtils.USERLOGGER;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,5 +22,5 @@ public class BaseModelDto {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
     private EnumStatus status;
-    private String userCreated;
+    private String userCreated = USERLOGGER;
 }

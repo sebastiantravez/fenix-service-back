@@ -16,6 +16,7 @@ public class TokenUtils {
 
     private static final long EXPIRATION_APP =  600000000L;
 
+    public static String USERLOGGER = "";
 
     public static String generateToken(String username, String email){
         Date expire = new Date(new Date().getTime() + EXPIRATION_APP);
@@ -35,10 +36,12 @@ public class TokenUtils {
     public static UsernamePasswordAuthenticationToken getAuthentication(String token){
         try {
             Claims claims = Jwts.parser().setSigningKey(SECRET_APP.getBytes()).parseClaimsJws(token).getBody();
+            USERLOGGER = claims.get("username").toString();
             return new UsernamePasswordAuthenticationToken(claims.getSubject(), null, Collections.emptyList());
 
         }catch (Exception e){
             return null;
         }
     }
+
 }
