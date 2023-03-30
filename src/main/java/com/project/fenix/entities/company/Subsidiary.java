@@ -33,4 +33,7 @@ public class Subsidiary extends BaseModel {
     @OneToOne
     @JoinColumn(name = "province_id")
     private Province province;
+    @OneToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
 }

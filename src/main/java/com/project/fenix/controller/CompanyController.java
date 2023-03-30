@@ -1,6 +1,7 @@
 package com.project.fenix.controller;
 
 import com.project.fenix.dto.company.CompanyDto;
+import com.project.fenix.dto.company.SubsidiaryDto;
 import com.project.fenix.services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,5 +34,15 @@ public class CompanyController {
     @PutMapping("/updateCompany/{companyId}")
     public CompanyDto updateCompany(@PathVariable("companyId") Long companyId, @RequestBody CompanyDto companyDto) {
         return companyService.update(companyId, companyDto);
+    }
+
+    @PostMapping("/saveSubsidiary")
+    public SubsidiaryDto saveSubsidiary(@RequestBody SubsidiaryDto subsidiaryDto) {
+        return companyService.saveSubsidiary(subsidiaryDto);
+    }
+
+    @PutMapping("/updateSubsidiary/{sucursalId}")
+    public SubsidiaryDto updateSubsidiary(@PathVariable("sucursalId") Long sucursalId, @RequestBody SubsidiaryDto subsidiaryDto) {
+        return companyService.updateSubsidiary(sucursalId, subsidiaryDto);
     }
 }

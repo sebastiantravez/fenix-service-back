@@ -54,17 +54,19 @@ CREATE TABLE subsidiary (
     phone VARCHAR(150),
     description VARCHAR(150),
     type_center VARCHAR(50) NOT NULL,
+    company_id SERIAL NOT NULL,
     province_id SERIAL NOT NULL,
     status VARCHAR(3),
     created_at TIMESTAMP WITHOUT TIME ZONE NOT NULL,
     updated_at TIMESTAMP WITHOUT TIME ZONE,
     CONSTRAINT pk_subsidiary_id PRIMARY KEY (id),
-    FOREIGN KEY (province_id) REFERENCES province(id)
+    FOREIGN KEY (province_id) REFERENCES province(id),
+    FOREIGN KEY (company_id) REFERENCES company(id)
 );
 
+ALTER TABLE subsidiary ADD CONSTRAINT ck_unique_subsidiary_points UNIQUE (emission_point, establishment_point);
 
 INSERT INTO country(id, name, status, created_at, updated_at) VALUES (1, 'ECUADOR', 'ACT', now(), now());
-
 
 INSERT INTO company(id, name, ruc, address, phone, description, type_center, country_id, status, created_at, updated_at)
 values (1, 'FENIX', '1702457896001', 'EL CONDANDO','024784212','EMPRESA', 'MATRIZ',1,'ACT', now(), now())
