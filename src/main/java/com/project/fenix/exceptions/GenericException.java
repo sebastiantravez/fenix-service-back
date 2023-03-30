@@ -6,9 +6,9 @@ public class GenericException extends RuntimeException {
 
     private HttpStatus status;
 
-    public GenericException(HttpStatus httpStatus, String message) {
+    public GenericException(String message) {
         super(message);
-        this.status = httpStatus;
+        this.status = HttpStatus.INTERNAL_SERVER_ERROR;
     }
 
     public HttpStatus getStatus() {

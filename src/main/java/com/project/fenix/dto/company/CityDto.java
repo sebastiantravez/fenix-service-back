@@ -13,6 +13,5 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class CityDto extends BaseModelDto {
-    private Long id;
     private String name;
 }

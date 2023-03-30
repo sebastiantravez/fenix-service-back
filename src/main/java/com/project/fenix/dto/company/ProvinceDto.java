@@ -13,6 +13,5 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class ProvinceDto extends BaseModelDto {
-    private Long id;
     private String name;
 }

@@ -29,7 +29,6 @@ public class BaseModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
     private String userCreated = "SYSTEM_DEFAULT";
 
     @Column(name = "created_at", updatable = false)

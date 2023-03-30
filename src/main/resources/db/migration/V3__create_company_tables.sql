@@ -32,7 +32,7 @@ CREATE TABLE city(
 CREATE TABLE company (
     id SERIAL NOT NULL,
     name VARCHAR(250) NOT NULL,
-    ruc VARCHAR(50) NOT NULL,
+    ruc VARCHAR(50) NOT NULL unique,
     address VARCHAR(250) NOT NULL,
     phone VARCHAR(150),
     description VARCHAR(150),
