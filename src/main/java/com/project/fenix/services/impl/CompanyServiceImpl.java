@@ -58,7 +58,6 @@ public class CompanyServiceImpl implements CompanyService {
         company.setAddress(companyDto.getAddress());
         company.setPhone(companyDto.getPhone());
         company.setDescription(companyDto.getDescription());
-        company.setCountry(modelMapper.map(companyDto.getCountry(), Country.class));
         company.setTypeCenter(companyDto.getTypeCenter());
         company.setUpdatedAt(LocalDateTime.now());
         company.setUserCreated(companyDto.getUserCreated());
