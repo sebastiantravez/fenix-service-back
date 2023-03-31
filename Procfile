@@ -1,1 +1,1 @@
-web: java -jar build/libs/fenix-0.0.1-SNAPSHOT.jar
+web: java -jar build/libs/fenix-0.0.1-SNAPSHOT.jar --port=$PORT --no-browser
