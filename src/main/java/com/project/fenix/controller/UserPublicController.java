@@ -19,10 +19,10 @@ public class UserPublicController {
     @Autowired
     private UserService userService;
 
-//    @PostMapping("/change/password/{userId}")
-//    public ResponseEntity changePassword(@PathVariable Long userId){
-//        return new ResponseEntity<>(HttpStatus.OK);
-//    }
+    @PostMapping("/change/password/{userId}")
+    public ResponseEntity changePassword(@PathVariable Long userId){
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody AuthCredential authCredential) throws ResponseError {
